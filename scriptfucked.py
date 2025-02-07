@@ -44,7 +44,7 @@ def process_sales_data(sales_csvfile, orders_dir):
     # Import the sales data from the CSV file into a DataFrame
     sales_df = pd.read_csv(sales_csvfile)  # Changed to use sales_csvfile parameter
     # Insert a new "TOTAL PRICE" column into the DataFrame
-    sales_df.insert(7, "TOTAL PRICE", sales_df['ITEM QUANTITY'] * sales_df['ITEM PRICE'])  # Spacing fix for readability
+    sales_df.insert(7, "TOTAL PRICE", sales_df['ITEM QUANTITY'] * sales_df['ITEM PRICE'])
     # Remove columns from the DataFrame that are not needed
     sales_df.drop(columns=['ADDRESS', 'CITY'], inplace=True)
     # Group the rows in the DataFrame by order ID
