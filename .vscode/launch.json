@@ -4,34 +4,47 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
+
+        // First option, this is the expected arguments "sales_data.csv"
+        {
+            //The name of the configuration, which shows up in the drop-down in VS Code
+            "name": "Sales Data Python Debugger",
+            //The debugger to use, could also be "python" or other
+            "type": "debugpy",
+            "request": "launch",
+            // The absolute path of the file to debug.  This uses the currently open file, it could also be hardcoded.
+            "program": "${file}",
+            // Directing output to the integrated terminal
+            "console": "integratedTerminal",
+            // Arguments, in this case hardcoded, can set it up to ask as well.
+            "args": [
+                "sales_data.csv"
+            ]
+        },
+        
+        // Second option, no arguments, this should cause the program to exit
+        
         {
             "name": "No Arguments",
             "type": "debugpy",
             "request": "launch",
             "program": "${file}",
-            "console": "integratedTerminal",
-            ]
+            "console": "integratedTerminal"
+
         },
 
+        // Third option, wrong filename,  this should cause the program to be unable to find the file.
         {
-            "name": "Sales Data",
+            "name": "Bad File Name",
             "type": "debugpy",
             "request": "launch",
             "program": "${file}",
             "console": "integratedTerminal",
             "args": [
-                "sales_data.csv"
-            ]
-        },
-        {
-            "name": "Bad Filename",
-            "type": "debugpy",
-            "request": "launch",
-            "program": "${file}",
-            "console": "integratedTerminal",
-            "args": [
-                "sales_csvfile"
+                "sales_data2.csv"
             ]
         }
+
+
     ]
 }
